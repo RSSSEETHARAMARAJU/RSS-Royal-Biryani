@@ -260,7 +260,6 @@ a:hover {
     position: relative;
     height: 100vh;
     min-height: 600px;
-    max-height: 900px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1366,7 +1365,128 @@ a:hover {
 }
 
 /* ===========================
-   RESPONSIVE DESIGN
+   CUSTOMER REVIEWS SECTION
+   =========================== */
+
+.reviews {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+    margin: clamp(2rem, 5vw, 3.5rem) 0;
+}
+
+.reviews .section-header {
+    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.review-card {
+    background: rgba(212, 175, 55, 0.08);
+    border: 2px solid var(--color-primary);
+    border-left: 5px solid var(--color-secondary);
+    border-radius: 12px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+}
+
+.review-card::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 3rem;
+    color: var(--color-primary);
+    opacity: 0.3;
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+    background: rgba(212, 175, 55, 0.12);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+    border-color: var(--color-secondary);
+}
+
+.review-card p {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    line-height: 1.8;
+    color: rgba(245, 245, 245, 0.95);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.review-card h4 {
+    font-size: clamp(0.9rem, 1.3vw, 1rem);
+    color: var(--color-primary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ===========================
+   FAQ SECTION
+   =========================== */
+
+.faq {
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+    margin: clamp(2rem, 5vw, 3.5rem) 0;
+}
+
+.faq .section-header {
+    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.faq-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.faq-item {
+    background: rgba(212, 175, 55, 0.06);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.15);
+    transform: translateY(-5px);
+}
+
+.faq-item h3 {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.faq-item p {
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    line-height: 1.7;
+    color: rgba(245, 245, 245, 0.88);
+    margin: 0;
+    font-weight: 300;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN - REVIEWS & FAQ
    =========================== */
 
 @media (max-width: 768px) {
@@ -1686,6 +1806,22 @@ a:hover {
     .social-links {
         justify-content: center;
     }
+
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        text-align: center;
+    }
+
+    .faq-container {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-item h3 {
+        font-size: 1.3rem;
+    }
 }
 
 /* ===========================
@@ -1695,7 +1831,7 @@ a:hover {
 @media (min-width: 1200px) {
     .hero {
         min-height: 750px;
-        max-height: 850px;
+        height: auto;
     }
 
     .hero-content {
@@ -1759,6 +1895,16 @@ a:hover {
     .dishes-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 3rem;
+    }
+
+    .reviews-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+
+    .faq-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
     }
 
     .section-header h2 {
